@@ -1,31 +1,27 @@
-# The Rust Language Reference
+# Rust语言参考
 
-This document is the primary reference for the Rust programming language.
+本文档是Rust编程语言的主要参考资料。
 
-This document is not normative. It may include details that are specific
-to `rustc` itself, and should not be taken as a specification for the
-Rust language. We intend to produce such a document someday, but this is
-what we have for now.
+本文件不规范。它可能包括`rustc`本身的具体细节，不应被视为Rust语言的规范。我们打算某一天制作这样一份文件，这是我们现在做这个的原因。
 
-## Dependencies
+## 依赖(Dependencies)
 
-- rustc (the Rust compiler).
-- mdbook (use `cargo install mdbook` to install it).
+- rustc (Rust语言的编译器).
+- mdbook (使用命令 `cargo install mdbook` 进行安装).
 
-## Build steps
+## 构建步骤
 
-First, go to the repository folder and test the code snippets to catch
-compilation errors:
+首先，进入到仓库(repository)目录并通过测试代码 片段来捕获编译错误:
 
 ```bash
 cd reference
 mdbook test
 ```
 
-And then generate the book:
+然后生成书本:
 
 ```bash
 mdbook build
 ```
 
-The generated HTML will be in the `docs` folder.
+生成的HTML文件将会放置在`docs` 目录。
