@@ -1,4 +1,4 @@
-% The Rust Reference has moved
+% Rust语言参考已经挪走
 
-We've split up the reference into chapters. Please find it at its new
-home [here](reference/index.html).
+我们已经将参考文档分章节。请参考新的 [地址](reference/index.html).
+
