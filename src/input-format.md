@@ -1,3 +1,3 @@
-# Input format
+# 输入格式(Input format)
 
-Rust input is interpreted as a sequence of Unicode code points encoded in UTF-8.
+Rust输入被解释为用UTF-8编码的Unicode码位序列。

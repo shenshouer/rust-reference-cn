@@ -1,1 +1,1 @@
-# Lexical structure
+# 此法结构(Lexical structure)
