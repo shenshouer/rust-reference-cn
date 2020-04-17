@@ -4,6 +4,9 @@
 
 本文件不规范。它可能包括`rustc`本身的具体细节，不应被视为Rust语言的规范。我们打算某一天制作这样一份文件，这是我们现在做这个的原因。
 
+- [稳定版英文原版](https://doc.rust-lang.org/stable/reference/)
+- [非稳定版英文原版](https://doc.rust-lang.org/nightly/reference/)
+
 ## 依赖(Dependencies)
 
 - rustc (Rust语言的编译器).
