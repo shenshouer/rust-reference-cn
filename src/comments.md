@@ -1,4 +1,4 @@
-# Comments
+# 注释(Comments)
 
 > **<sup>Lexer</sup>**\
 > LINE_COMMENT :\
@@ -32,58 +32,47 @@
 > _IsolatedCR_ :\
 > &nbsp;&nbsp; _A `\r` not followed by a `\n`_
 
-## Non-doc comments
+## 非文档注释(Non-doc comments)
 
-Comments in Rust code follow the general C++ style of line (`//`) and
-block (`/* ... */`) comment forms. Nested block comments are supported.
+Rust中注释与C++类似，行注释(`//`)与块注释(`/* ... */`)。支持嵌套块注释
 
-Non-doc comments are interpreted as a form of whitespace.
+非文档注释被解释为空白形式。
 
-## Doc comments
+## 文档注释(Doc comments)
 
-Line doc comments beginning with exactly _three_ slashes (`///`), and block
-doc comments (`/** ... */`), both inner doc comments, are interpreted as a
-special syntax for [`doc` attributes]. That is, they are equivalent to writing
-`#[doc="..."]` around the body of the comment, i.e., `/// Foo` turns into
-`#[doc="Foo"]` and `/** Bar */` turns into `#[doc="Bar"]`.
+行文档注释以三个斜杠开头(`///`),块文档注释(`/** ... */`), 两个内部文档注释都被解释为文档属性([`doc` attributes])的特殊语法。 也就是说，它们等同于在注释的主体周围写`#[doc="..."]` ，如, `/// Foo` 变成`#[doc="Foo"]` 和 `/** Bar */` 变成 `#[doc="Bar"]`。
 
-Line comments beginning with `//!` and block comments `/*! ... */` are
-doc comments that apply to the parent of the comment, rather than the item
-that follows.  That is, they are equivalent to writing `#![doc="..."]` around
-the body of the comment. `//!` comments are usually used to document
-modules that occupy a source file.
+行文档注释以`//!`开始，块文档是`/*! ... */`都是适用于注释父项的doc注释，而不是其后的项目。也就是说，这等同于在注释主题周五写`#![doc="..."]` 。`//!`注释通常用于记录占用源文件的模块。
 
-Isolated CRs (`\r`), i.e. not followed by LF (`\n`), are not allowed in doc
-comments.
+在文档注释中不允许使用单独的CR(`\r`)，即后跟LF(`\n`)。
 
-## Examples
+## 示例
 
 ```rust
-//! A doc comment that applies to the implicit anonymous module of this crate
+//! 适用于此库的隐式匿名模块的文档注释
 
 pub mod outer_module {
 
-    //!  - Inner line doc
-    //!! - Still an inner line doc (but with a bang at the beginning)
+    //!  - 内部单行注释
+    //!! - 仍然是内部行文档注释(但带有特别提示的开头)(but with a bang at the beginning)
 
-    /*!  - Inner block doc */
-    /*!! - Still an inner block doc (but with a bang at the beginning) */
+    /*!  - 内块文档 */
+    /*!! - 仍然是内部块文档注释(但带有特别提示的开头)(but with a bang at the beginning) */
 
-    //   - Only a comment
-    ///  - Outer line doc (exactly 3 slashes)
-    //// - Only a comment
+    //   - 仅仅是注释
+    ///  - 外部行文档注释，需要三个斜杠
+    //// - 仅仅是注释
 
-    /*   - Only a comment */
-    /**  - Outer block doc (exactly) 2 asterisks */
-    /*** - Only a comment */
+    /*   - 仅仅是注释 */
+    /**  - 外部块文档注释，需要两个星号 */
+    /*** - 仅仅是注释 */
 
     pub mod inner_module {}
 
     pub mod nested_comments {
-        /* In Rust /* we can /* nest comments */ */ */
+        /* 在Rust /* 我们可以 /* 嵌套注释 */ */ */
 
-        // All three types of block comments can contain or be nested inside
-        // any other type:
+        // 所有的这三种块注释都可以包含其他的:
 
         /*   /* */  /** */  /*! */  */
         /*!  /* */  /** */  /*! */  */
@@ -92,32 +81,31 @@ pub mod outer_module {
     }
 
     pub mod degenerate_cases {
-        // empty inner line doc
+        // 空的内部行注释
         //!
 
-        // empty inner block doc
+        // 空的内部块文档
         /*!*/
 
-        // empty line comment
+        // 空的行注释
         //
 
-        // empty outer line doc
+        // 空的外部行文档
         ///
 
-        // empty block comment
+        // 空的块注释
         /**/
 
         pub mod dummy_item {}
 
-        // empty 2-asterisk block isn't a doc block, it is a block comment
+        // 空的两星块不是文档块，是块注释
         /***/
 
     }
 
-    /* The next one isn't allowed because outer doc comments
-       require an item that will receive the doc */
+    /* 下一个是不允许的，因为外部文档注释需要一个可以用来接受文档的 */
 
-    /// Where is my item?
+    /// 接受项在哪里呢?
 #   mod boo {}
 }
 ```
