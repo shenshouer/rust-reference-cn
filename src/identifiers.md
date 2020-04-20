@@ -1,4 +1,4 @@
-# Identifiers
+# 标识符(Identifiers)
 
 > **<sup>Lexer:<sup>**\
 > IDENTIFIER_OR_KEYWORD :\
@@ -12,23 +12,20 @@
 > IDENTIFIER :\
 > NON_KEYWORD_IDENTIFIER | RAW_IDENTIFIER
 
-An identifier is any nonempty ASCII string of the following form:
+标识符是以下格式的任何非空ASCII字符串:
 
-Either
+要么
 
-* The first character is a letter.
-* The remaining characters are alphanumeric or `_`.
+* 首字符是一个字母。
+* 其余字符为字母数字或`_`.
 
-Or
+或者
 
-* The first character is `_`.
-* The identifier is more than one character. `_` alone is not an identifier.
-* The remaining characters are alphanumeric or `_`.
+* 首字符是 `_`.
+* 标识符超过一个字符。 `_`本身不是标识符。
+* 其余字符为字母数字或`_`.
 
-A raw identifier is like a normal identifier, but prefixed by `r#`. (Note that
-the `r#` prefix is not included as part of the actual identifier.)
-Unlike a normal identifier, a raw identifier may be any strict or reserved
-keyword except the ones listed above for `RAW_IDENTIFIER`.
+原始标识符类似于普通标识符，但以`r#`为前缀。 (请注意，`r#`前缀不包含在实际标识符中。)与普通标识符不同，原始标识符可以是任何严格或保留的关键字，但上面列出的`RAW_IDENTIFIER`除外。
 
 [strict]: keywords.md#strict-keywords
 [reserved]: keywords.md#reserved-keywords
